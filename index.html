@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Planner - Organize Your Academic Success</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="brand-section">
+                    <h1><span class="brand-icon">📚</span> StudyMate Pro</h1>
+                    <p class="tagline">Your Personal Academic Success Companion</p>
+                </div>
+                <div class="header-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" id="total-tasks">0</span>
+                        <span class="stat-label">Total Tasks</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="completed-tasks">0</span>
+                        <span class="stat-label">Completed</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="progress-percentage">0%</span>
+                        <span class="stat-label">Progress</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Left Panel -->
+            <div class="left-panel">
+                <!-- Quick Task Creator -->
+                <div class="add-task-section">
+                    <h2><span class="section-emoji">✨</span> Quick Task Creator</h2>
+                    <form id="task-form" class="task-form">
+                        <div class="form-group">
+                            <label for="task-title">📝 What needs to be done?</label>
+                            <input type="text" id="task-title"
+                                placeholder="e.g., Complete Chapter 5 exercises, Prepare for Physics exam..." required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="task-date">Due Date</label>
+                                <input type="date" id="task-date" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="task-time">Time</label>
+                                <input type="time" id="task-time">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="task-priority">Priority</label>
+                            <select id="task-priority">
+                                <option value="low">Low</option>
+                                <option value="medium" selected>Medium</option>
+                                <option value="high">High</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="task-category">Category</label>
+                            <select id="task-category">
+                                <option value="assignment">Assignment</option>
+                                <option value="exam">Exam</option>
+                                <option value="project">Project</option>
+                                <option value="reading">Reading</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn-primary">
+                            <i class="fas fa-plus"></i> Add Task
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Achievement Dashboard -->
+                <div class="progress-section">
+                    <h2><span class="section-emoji">🎯</span> Achievement Dashboard</h2>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" id="progress-bar"></div>
+                    </div>
+                    <div class="progress-details">
+                        <div class="progress-item">
+                            <span class="progress-label">Today's Tasks</span>
+                            <span class="progress-value" id="today-tasks">0</span>
+                        </div>
+                        <div class="progress-item">
+                            <span class="progress-label">This Week</span>
+                            <span class="progress-value" id="week-tasks">0</span>
+                        </div>
+                        <div class="progress-item">
+                            <span class="progress-label">Overdue</span>
+                            <span class="progress-value overdue" id="overdue-tasks">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Panel -->
+            <div class="right-panel">
+                <!-- Smart Finder -->
+                <div class="filter-section">
+                    <div class="search-container">
+                        <span class="search-icon">🔍</span>
+                        <input type="text" id="search-input" placeholder="Find your tasks instantly...">
+                    </div>
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="pending">Pending</button>
+                        <button class="filter-btn" data-filter="completed">Completed</button>
+                        <button class="filter-btn" data-filter="overdue">Overdue</button>
+                    </div>
+                </div>
+
+                <!-- My Study Queue -->
+                <div class="tasks-section">
+                    <h2><span class="section-emoji">📋</span> My Study Queue</h2>
+                    <div id="task-list" class="task-list"></div>
+                </div>
+
+                <!-- Study Journey -->
+                <div class="timeline-section">
+                    <h2><span class="section-emoji">⏰</span> Study Journey</h2>
+                    <div id="timeline" class="timeline"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Personal Footer -->
+    <footer class="app-footer">
+        <p>Made with 💜 for academic success | StudyMate Pro v2.1</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
